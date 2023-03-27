@@ -21,6 +21,7 @@ struct StewartLynchView: View {
                 .frame(width: 100)
             VStack(alignment: .leading) {
                 Text("https://www.createchsol.com")
+                    .font(.largeTitle)
                 Text("https://youtube.com/@StewartLynch")
                 Text("https://twitter.com/StewartLynch")
                 Text("https://iosdev.space/@StewartLynch")
@@ -35,5 +36,7 @@ struct StewartLynchView: View {
 struct StewartLynchView_Previews: PreviewProvider {
     static var previews: some View {
         StewartLynchView()
+//            .previewLayout(.fixed(width: 300, height: 100))
+            .previewLayout(.sizeThatFits)
     }
 }

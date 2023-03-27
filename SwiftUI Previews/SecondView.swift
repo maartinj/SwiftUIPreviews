@@ -33,3 +33,35 @@ struct SecondView: View {
         .navigationTitle("Second View")
     }
 }
+
+// Editor -> Create Preview
+
+struct Previews_SecondView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            NavigationStack {
+                PreviewView()
+            }
+            .previewDisplayName("Portrait")
+            
+            NavigationStack {
+                SecondView(counter: .constant(1))
+            }
+            .previewInterfaceOrientation(.landscapeRight)
+            .previewDisplayName("Landscape")
+            
+            NavigationStack {
+                SecondView(counter: .constant(1))
+            }
+            .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
+            .previewDisplayName("iPhone SE")
+        }
+    }
+    
+    struct PreviewView: View {
+        @State private var counter = 1
+        var body: some View {
+            SecondView(counter: $counter)
+        }
+    }
+}
